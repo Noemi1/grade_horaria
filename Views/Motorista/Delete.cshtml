@@ -1,0 +1,54 @@
+﻿@model GradeHoraria_.Models.Motorista
+
+
+<section class="mx-auto col-lg-4 col-md-4 col-sm-12 d-flex" style="float: unset">
+    <div class="card w-100">
+        <div class="card-header">
+            <h2>Excluir Registro</h2>
+            <h4>Motorista</h4>
+        </div>
+        <div class="card-body py-4">
+            <p>Tem certeza que deseja excluir o registro? Ele não poderá ser recuperado!</p>
+                <hr class="my-0"/>
+            <div>
+                <dl class="dl-vertical">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Telefone)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Telefone)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CPF)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CPF)
+                    </dd>
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="d-flex justify-content-between align-items-center" >
+                        @Html.ActionLink("Voltar para a listagem", "List", "Motorista")
+                        <button type="submit" class="btn btn-dark">Excluir</button>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>

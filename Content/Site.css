@@ -1,0 +1,56 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #777;
+    border-color: #fff
+}
+
+
+.form-group {
+    display: flex !important;
+    flex-flow: column;
+}
+
+
+.login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+hr {
+    border-top: 1px solid #726d6d;
+    margin: 0
+}
+
+.main {
+    min-height: calc(100vh - 62px - 40px);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #337ab7 0%, #265a88 100%);
+    border-color: #245580;
+    background-size: 100% 200%;
+    background-position: 0 100%;
+    transition: 0.4s;
+}
+
+    .btn-primary:hover, .btn-primary:focus {
+        background-color: #265a88;
+        background-position: 0 200%;
+    }

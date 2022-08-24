@@ -1,0 +1,66 @@
+﻿@using GradeHoraria_.Models
+@model LoginViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - AgendaEdu</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <section class="login">
+        <div class="d-flex flex-wrap align-items-strech card bg-white p-3 border">
+            <div class="col-sm-11">
+                <img src="~/Images/logo.png" alt="Logo Agendaedu" class="login-logo" style="max-width: 210px" />
+                <h3><strong>Fazer Login</strong></h3>
+                <h5>Use uma conta local para fazer o logon.</h5>
+                <hr />
+                <div class="form-row col-sm-12">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group col-sm-12">
+                            @Html.LabelFor(m => m.Email, new { @class = "" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group col-sm-12">
+                            @Html.LabelFor(m => m.Password, new { @class = "" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="d-flex align-items-center">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <button type="submit" value="Logon" class="btn btn-primary">Entrar</button>
+                        </div>
+                        <p class="form-group col-sm-12 text-right">
+                            @Html.ActionLink("Registre-se como um novo usuário", "Register", null, new { @class = "text-right" })
+                        </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

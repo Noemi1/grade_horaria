@@ -1,0 +1,58 @@
+﻿@model GradeHoraria_.Models.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova conta - AgendaEdu</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <section class="login">
+        <div class="d-flex flex-wrap align-items-strech card bg-white p-3 border">
+            <div class="col-sm-11">
+                <img src="~/Images/logo.png" alt="Logo Agendaedu" class="login-logo" style="max-width: 210px" />
+                <h3><strong>Cadastrar nova conta</strong></h3>
+                <h5>Cadastre uma conta local para fazer o logon.</h5>
+                <hr class="my-0"/>
+                <div class="form-row col-sm-12">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        <div class="form-group col-sm-12">
+                            @Html.LabelFor(m => m.Email, new { @class = "" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-sm-12">
+                            @Html.LabelFor(m => m.Password, new { @class = "" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-sm-12">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <button type="submit" value="Logon" class="btn btn-primary">Entrar</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
